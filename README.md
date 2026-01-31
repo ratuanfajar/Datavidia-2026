@@ -1,165 +1,240 @@
 # DataVidia 2026
 
-A data science competition project analyzing environmental and air quality data in Jakarta, Indonesia.
+Proyek kompetisi data science untuk menganalisis data lingkungan dan kualitas udara di Jakarta, Indonesia.
 
-## Project Overview
+## Ikhtisar Proyek
 
-This project involves comprehensive analysis of Jakarta's environmental data including air quality indices (ISPU), weather patterns, population demographics, river water quality, and vegetation health. The goal is to build predictive models and extract insights from multiple interconnected environmental datasets spanning from 2010 to 2025.
+Proyek ini melibatkan analisis komprehensif data lingkungan Jakarta termasuk indeks kualitas udara (ISPU), pola cuaca, demografi penduduk, kualitas air sungai, dan kesehatan vegetasi. Tujuannya adalah membangun model prediktif dan mengekstrak insight dari beberapa dataset lingkungan yang saling terhubung dengan rentang tahun 2010 hingga 2025.
 
-## Dataset Description
+## Deskripsi Dataset
 
-The project utilizes multiple data sources organized by category:
+Proyek menggunakan beberapa sumber data yang diorganisir berdasarkan kategori:
 
-### 1. Air Quality (ISPU - Indeks Standar Pencemar Udara)
-- **Location**: `data/01-raw/ISPU/`
-- **Time Range**: 2010-2025
-- **Contents**: Daily air pollution standard indices for DKI Jakarta
-- **Files**: Yearly datasets from 2010-2025, including 2023-2025 component data
+### 1. Kualitas Udara (ISPU - Indeks Standar Pencemar Udara)
+- **Lokasi**: `data/01-raw/ISPU/`
+- **Rentang Waktu**: 2010-2025
+- **Isi**: Indeks standar pencemar udara harian untuk DKI Jakarta
+- **File**: Dataset tahunan dari 2010-2025, termasuk data komponen 2023-2025
 
-### 2. Weather Data (Cuaca Harian)
-- **Location**: `data/01-raw/cuaca-harian/`
-- **Contents**: Daily weather measurements from 5 stations across Jakarta:
+### 2. Data Cuaca (Cuaca Harian)
+- **Lokasi**: `data/01-raw/cuaca-harian/`
+- **Isi**: Pengukuran cuaca harian dari 5 stasiun di Jakarta:
   - DKI1: Bundaran HI
   - DKI2: Kelapa Gading
   - DKI3: Jagakarsa
   - DKI4: Lubang Buaya
   - DKI5: Kebon Jeruk
 
-### 3. Population Data (Jumlah Penduduk)
-- **Location**: `data/01-raw/jumlah-penduduk/`
-- **Time Range**: 2013-2021
-- **Contents**: Population demographics by age group and gender in DKI Jakarta
+### 3. Data Penduduk (Jumlah Penduduk)
+- **Lokasi**: `data/01-raw/jumlah-penduduk/`
+- **Rentang Waktu**: 2013-2021
+- **Isi**: Demografi penduduk menurut kelompok usia dan jenis kelamin di DKI Jakarta
 
-### 4. River Water Quality (Kualitas Air Sungai)
-- **Location**: `data/01-raw/kualitas-air-sungai/`
-- **Contents**: Water quality measurements for Jakarta's rivers
+### 4. Kualitas Air Sungai (Kualitas Air Sungai)
+- **Lokasi**: `data/01-raw/kualitas-air-sungai/`
+- **Isi**: Pengukuran kualitas air sungai-sungai di Jakarta
 
-### 5. Vegetation Index (NDVI)
-- **Location**: `data/01-raw/NDVI (vegetation index)/`
-- **Contents**: Normalized Difference Vegetation Index data for Jakarta
+### 5. Indeks Vegetasi (NDVI)
+- **Lokasi**: `data/01-raw/NDVI (vegetation index)/`
+- **Isi**: Data Normalized Difference Vegetation Index untuk Jakarta
 
-### 6. National Holidays & Weekends
-- **Location**: `data/01-raw/libur-nasional/`
-- **Contents**: Calendar data for holidays and weekends
+### 6. Hari Libur Nasional & Akhir Pekan
+- **Lokasi**: `data/01-raw/libur-nasional/`
+- **Isi**: Data kalender untuk hari libur dan akhir pekan
 
-## Directory Structure
+## Struktur Direktori
 
 ```
 .
-├── README.md                 # Project documentation
-├── pyproject.toml           # Project configuration and dependencies
+├── README.md                 # Dokumentasi proyek
+├── pyproject.toml           # Konfigurasi dan dependensi proyek
 ├── data/
-│   ├── 01-raw/              # Original, unprocessed data
-│   │   ├── cuaca-harian/    # Daily weather data
-│   │   ├── ISPU/            # Air quality indices
-│   │   ├── jumlah-penduduk/ # Population data
-│   │   ├── kualitas-air-sungai/ # River water quality
-│   │   ├── libur-nasional/  # Holiday calendar
-│   │   └── NDVI/            # Vegetation indices
-│   ├── 02-cleaned/          # Processed and cleaned data
-│   └── sample_submission.csv # Sample submission format
-└── notebooks/               # Jupyter notebooks for analysis
-    ├── formating.ipynb      # Data formatting and cleaning
-    └── notebook.ipynb       # Exploratory data analysis
+│   ├── 01-raw/              # Data asli, belum diproses
+│   │   ├── cuaca-harian/    # Data cuaca harian
+│   │   ├── ISPU/            # Indeks kualitas udara
+│   │   ├── jumlah-penduduk/ # Data penduduk
+│   │   ├── kualitas-air-sungai/ # Kualitas air sungai
+│   │   ├── libur-nasional/  # Kalender liburan
+│   │   └── NDVI/            # Indeks vegetasi
+│   ├── 02-cleaned/          # Data yang sudah diproses dan dibersihkan
+│   └── sample_submission.csv # Format sampel submission
+└── notebooks/               # Jupyter notebook untuk analisis
+    ├── cleaning.ipynb      # Formatting dan pembersihan data
+    └── notebook.ipynb       # Analisis data eksplorasi
 ```
 
-## Getting Started
+## Memulai
 
-### Prerequisites
+### Prasyarat
 - Python >= 3.12
-- Virtual environment (recommended)
+- Virtual environment (disarankan)
 
-### Installation
+### Instalasi
 
-1. Clone the repository:
+1. Clone repositori:
 ```bash
 git clone <repository-url>
 cd "DataVidia 2026"
 ```
 
-2. Create and activate virtual environment:
+2. Buat dan aktifkan virtual environment:
 ```bash
 python -m venv .venv
-# On Windows:
+# Di Windows:
 .\.venv\Scripts\Activate.ps1
-# On macOS/Linux:
+# Di macOS/Linux:
 source .venv/bin/activate
 ```
 
-3. Install dependencies:
+3. Pasang dependensi:
 ```bash
 pip install -e .
 ```
 
-### Dependencies
+### Dependensi
 
-The project uses the following key libraries:
-- **pandas** & **numpy**: Data manipulation and numerical computing
-- **matplotlib** & **seaborn**: Data visualization
-- **ipython** & **ipywidgets**: Interactive notebooks
-- **ydata-profiling**: Automated data profiling and reporting
+Proyek menggunakan library kunci berikut:
+- **pandas** & **numpy**: Manipulasi data dan komputasi numerik
+- **matplotlib** & **seaborn**: Visualisasi data
+- **ipython** & **ipywidgets**: Jupyter notebook interaktif
+- **ydata-profiling**: Profiling dan pelaporan data otomatis
 
-## Data Processing Pipeline
+### Manajemen Branch
 
-### Stage 1: Raw Data (01-raw/)
-- Original datasets as downloaded from sources
-- No modifications applied
+**Branch master** adalah branch utama yang berisi kode stabil dan siap produksi.
 
-### Stage 2: Cleaned Data (02-cleaned/)
-- Processed and standardized datasets
-- Data quality improvements and transformations
+Untuk melakukan eksperimen atau pengembangan fitur baru, buat branch terpisah:
 
-## Analysis
+```bash
+# Membuat dan beralih ke branch baru untuk eksperimen
+git checkout -b dev-nama-anda
 
-The project includes Jupyter notebooks for:
-- **Exploratory Data Analysis**: Initial data exploration and visualization
-- **Data Formatting**: Cleaning and preprocessing steps
-- Pattern identification and feature engineering
+# Atau gunakan perintah modern
+git switch -c dev-nama-anda
+```
 
-## Project Goals
+**Konvensi penamaan branch**:
+- `dev-nama-anda` - Branch pengembangan personal
+- `feature/deskripsi-fitur` - Untuk pengembangan fitur baru
+- `bugfix/deskripsi-bug` - Untuk perbaikan bug
+- `hotfix/deskripsi-urgent` - Untuk perbaikan mendesak
 
-1. **Data Integration**: Combine multiple environmental datasets
-2. **Pattern Discovery**: Identify relationships between air quality and environmental factors
-3. **Predictive Modeling**: Build models to forecast air quality and environmental metrics
-4. **Visualization**: Create insights through data visualization
-5. **Competition Submission**: Generate predictions in required format
+**Aturan Commit dan Push ke GitHub**:
 
-## Usage
+Gunakan prefix pada pesan commit untuk konsistensi:
 
-### Running Notebooks
+```bash
+# Untuk dokumentasi
+git commit -m "docs: menambahkan penjelasan branch management"
+
+# Untuk perbaikan bug
+git commit -m "fix: memperbaiki error pada proses cleaning data"
+
+# Untuk fitur baru
+git commit -m "feat: menambahkan fungsi preprocessing untuk ISPU data"
+
+# Untuk refactoring
+git commit -m "refactor: mengorganisir ulang struktur notebook"
+
+# Untuk testing
+git commit -m "test: menambahkan unit test untuk data validation"
+
+# Untuk konfigurasi
+git commit -m "config: update dependencies di pyproject.toml"
+```
+
+**Prefix yang direkomendasikan**:
+- `feat:` - Fitur baru
+- `fix:` - Perbaikan bug
+- `docs:` - Perubahan dokumentasi
+- `style:` - Perubahan style/format (bukan kode logika)
+- `refactor:` - Refactoring kode
+- `test:` - Penambahan atau perubahan test
+- `config:` - Perubahan konfigurasi
+- `perf:` - Perbaikan performa
+
+**Langkah push ke GitHub**:
+
+```bash
+# Push branch ke remote (pertama kali)
+git push -u origin dev-nama-anda
+
+# Push perubahan selanjutnya
+git push origin dev-nama-anda
+
+# Setelah selesai, merge ke master melalui Pull Request di GitHub
+# atau merge secara lokal:
+git checkout master
+git merge dev-nama-anda
+git push origin master
+```
+
+## Pipeline Pemrosesan Data
+
+### Tahap 1: Data Mentah (01-raw/)
+- Dataset asli seperti yang diunduh dari sumber
+- Tidak ada modifikasi yang diterapkan
+
+### Tahap 2: Data Dibersihkan (02-cleaned/)
+- Dataset yang diproses dan distandarkan
+- Peningkatan kualitas data dan transformasi
+
+## Analisis
+
+Proyek mencakup notebook Jupyter untuk:
+- **Analisis Data Eksplorasi**: Eksplorasi dan visualisasi data awal
+- **Formatting Data**: Langkah pembersihan dan preprocessing
+- Identifikasi pola dan feature engineering
+
+## Tujuan Proyek
+
+1. **Integrasi Data**: Menggabungkan beberapa dataset lingkungan
+2. **Penemuan Pola**: Mengidentifikasi hubungan antara kualitas udara dan faktor lingkungan
+3. **Pemodelan Prediktif**: Membangun model untuk memperkirakan kualitas udara dan metrik lingkungan
+4. **Visualisasi**: Membuat insight melalui visualisasi data
+5. **Submission Kompetisi**: Menghasilkan prediksi dalam format yang diperlukan
+
+## Penggunaan
+
+### Menjalankan Notebook
 ```bash
 jupyter notebook notebooks/
 ```
 
-### Loading Data
+### Menjalankan Notebook
+```bash
+jupyter notebook notebooks/
+```
+
+### Memuat Data
 ```python
 import pandas as pd
 
-# Load air quality data
+# Muat data kualitas udara
 ispu = pd.read_csv('data/01-raw/ISPU/data-indeks-standar-pencemar-udara-(ispu)-di-provinsi-dki-jakarta-komponen-data-2024.csv')
 
-# Load weather data
+# Muat data cuaca
 weather = pd.read_csv('data/01-raw/cuaca-harian/cuaca-harian-dki1-bundaranhi.csv')
 ```
 
-## Data Sources
+## Sumber Data
 
-All data has been sourced from official Jakarta environmental and demographic databases. The raw data maintains its original format and encoding for traceability.
+Semua data bersumber dari database lingkungan dan demografi resmi Jakarta. Data mentah mempertahankan format dan enkoding aslinya untuk keterlacakan.
 
-## Notes
+## Catatan
 
-- All timestamps are in Jakarta timezone (WIB - Western Indonesia Time)
-- Some datasets may have gaps in historical data
-- Data cleaning and preprocessing steps are documented in `notebooks/formating.ipynb`
+- Semua timestamp berada di zona waktu Jakarta (WIB - Waktu Indonesia Bagian Barat)
+- Beberapa dataset mungkin memiliki celah dalam data historis
+- Langkah pembersihan dan preprocessing data didokumentasikan di `notebooks/cleaning.ipynb`
 
-## License
+## Lisensi
 
-This project is part of the DataVidia 2026 competition.
+Proyek ini adalah bagian dari kompetisi DataVidia 2026.
 
-## Contact & Support
+## Kontak & Dukungan
 
-For questions or issues related to this project, please refer to the competition guidelines.
+Untuk pertanyaan atau masalah terkait proyek ini, harap merujuk pada panduan kompetisi.
 
 ---
 
-Last Updated: January 31, 2026
+Terakhir Diperbarui: 31 Januari 2026
